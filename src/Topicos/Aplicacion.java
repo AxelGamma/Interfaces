@@ -3,8 +3,8 @@ package Topicos;
 import javax.swing.*;
 
 public class Aplicacion {
-    public static void main(String[]args){
-        try {
+    public static void main(String[]args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
+
             for (UIManager.LookAndFeelInfo info: javax.swing.UIManager.getInstalledLookAndFeels()){
                 if ("Nimbus".equals(info.getName())){
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -23,8 +23,5 @@ public class Aplicacion {
 
                 frame.setSize(300, 300);
             }
-        }catch (Exception e){
-            System.out.println("No se pudo establecer el aspecto deseado");
-        }
     }
 }
