@@ -1,5 +1,5 @@
 package EcuacionesCuadraticas;
-//Aqui estoy importando las librerias de la clase awt,swing
+//Aqui estoy importando las librerias
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -24,7 +24,7 @@ public class EcuacionesCuadraticas extends JFrame {
         setSize(300, 200);//Tamaño que definimos
         setLocationRelativeTo(null);//Aparece en el centro
         setResizable(true);//Se bloque los rangos de la ventana
-        //Llamando a los metodos
+        //Invocando a los metodos
         Componentes();
         Boton();
         respuestas();
@@ -75,7 +75,7 @@ public class EcuacionesCuadraticas extends JFrame {
         add(panelArriba);
 
     }
-    //Metodo que contiene las etiquetas de los resultados
+    //Metodo que contiene las etiquetas y cajas de texto de los resultados
     public void respuestas() {
         JPanel panelabajo = new JPanel();
         //Etiqueta
@@ -105,7 +105,6 @@ public class EcuacionesCuadraticas extends JFrame {
         //Agrega un ActionListener al botón
         //Utilizando el metodo addActionListener  del Componente.
         //Cuando ocurre el even de accion, se invoca el metodo actionPerformed de ese objeto
-
         //Clase anonima
 
 
@@ -113,14 +112,14 @@ public class EcuacionesCuadraticas extends JFrame {
             @Override
             //Este metodo envia un evento
             public void actionPerformed(ActionEvent e) {
-                                    //Tipo la e es una variable
+
                 //Estamos enviando el evento al metodo aceptarActionPerformed
                 aceptarActionPerformed(e);
             }
 
             private void aceptarActionPerformed(ActionEvent e) {
 
-                DecimalFormat df = new DecimalFormat("####.###");
+                DecimalFormat formato = new DecimalFormat("####.###");
 
                 try {
 
@@ -138,15 +137,16 @@ public class EcuacionesCuadraticas extends JFrame {
                     denominador = ((2) * (a1));
 
                     //Si es mayor a cero
-
                     if (segundaR > 0) {
-
+                        //primeraX guarda el resulatado
                         primeraX = ((-1 * b1) + Math.sqrt(segundaR)) / denominador;
-                        String cadena1 = String.valueOf(df.format(primeraX));
+                        //A primeraX se le da el formato que queremos, luego valueOf lo convierte a String y lo guarda en la variable
+                        //Cadena
+                        String cadena1 = String.valueOf(formato.format(primeraX));
                         x1.setText(cadena1);
 
                         segundaX = ((-1 * b1) - Math.sqrt(segundaR)) / denominador;
-                        String cadena2 = String.valueOf(df.format(segundaX));
+                        String cadena2 = String.valueOf(formato.format(segundaX));
                         x2.setText(cadena2);
 
                     }
@@ -156,7 +156,7 @@ public class EcuacionesCuadraticas extends JFrame {
                         x2.setText((-1*b1)+"-"+"√"+segundaR+"i"+"/"+(2*a1));
                     }
 
-                } catch (NumberFormatException exception) {
+                } catch (NumberFormatException evento) {
                     x1.setText("Error");
                     x2.setText("Error");
                 }
