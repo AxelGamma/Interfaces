@@ -13,6 +13,7 @@ public class frameCuadrado extends JFrame {
 
     //Constructor
     public frameCuadrado(){
+
         setSize(300,300);
         setTitle("Elevacion al cuadrado");
         Componentes();
@@ -25,25 +26,25 @@ public class frameCuadrado extends JFrame {
         txtResultado= new JTextField();
         btCuadrado= new JButton();
 
-        getContentPane().setLayout(null);
+        setLayout(null);
 
         lblnumero.setText("Primer numero");
-        getContentPane().add(lblnumero);
+        add(lblnumero);
         lblnumero.setBounds(0,28,144,24);
 
         txtNumero.setText("");
         txtNumero.setHorizontalAlignment(JTextField.RIGHT);
-        getContentPane().add(txtNumero);
+        add(txtNumero);
         txtNumero.setBounds(122,28,144,24);
 
         txtResultado.setText("Resulado");
-        getContentPane().add(txtResultado);
+        add(txtResultado);
         txtResultado.setHorizontalAlignment(JTextField.CENTER);
         txtResultado.setBounds(70,70,130,24);
 
         btCuadrado.setText("Sacar el resultado");
         getRootPane().setDefaultButton(btCuadrado);
-        getContentPane().add(btCuadrado);
+        add(btCuadrado);
         btCuadrado.setBounds(70,100,170,24);
 
             btCuadrado.addActionListener(new ActionListener() {
