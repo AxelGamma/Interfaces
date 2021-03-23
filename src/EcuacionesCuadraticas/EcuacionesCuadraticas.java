@@ -84,6 +84,8 @@ public class EcuacionesCuadraticas extends JFrame implements ActionListener {
         //Caja de texto
         x1.setText("");
         panelabajo.add(x1);
+        x1.setEditable(false);
+
 
         //Etiqueta
         xTwo.setText("x2");
@@ -92,6 +94,7 @@ public class EcuacionesCuadraticas extends JFrame implements ActionListener {
         x2.setText("");
         panelabajo.add(x2);
         add(panelabajo);
+        x2.setEditable(false);
 
     }
     //Metodo que contiene el boton
