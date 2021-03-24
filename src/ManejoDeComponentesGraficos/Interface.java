@@ -19,12 +19,12 @@ public class Interface extends JFrame {
     JPanel panel= new JPanel();
     JPanel operacion1= new JPanel();
     JButton botonatras;
+    JLabel tituloArea= new JLabel(" Area");
 
     public Interface(){
 
         super("Calculadora ");
         setLayout(new FlowLayout(1,15,15));
-
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(350,300);
         setResizable(false);
@@ -58,10 +58,6 @@ public class Interface extends JFrame {
 
     public void actionAceptarp1(ActionEvent event){
         setSize(400,300);
-        problema1.setVisible(false);
-        problema2.setVisible(false);
-        problema3.setVisible(false);
-
         area= new JLabel("Area:");
         perimetro= new JLabel("Perimetro");
         perimetrotf= new JTextField("",10);
@@ -73,7 +69,7 @@ public class Interface extends JFrame {
         botonatras= new JButton("Atras");
         hacerOperacion= new JButton("Hacer la operacion");
 
-        JLabel tituloArea= new JLabel(" Area");
+
         JPanel titulo= new JPanel(new FlowLayout());
 
         tituloArea.setFont(new Font(" ",Font.PLAIN,13));
@@ -144,6 +140,8 @@ public class Interface extends JFrame {
         areatf.setVisible(false);
         botonatras.setVisible(false);
         hacerOperacion.setVisible(false);
+        tituloArea.setVisible(false);
+
 
         problema1.setVisible(true);
         problema2.setVisible(true);
