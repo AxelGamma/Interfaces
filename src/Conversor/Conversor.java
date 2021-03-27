@@ -3,7 +3,10 @@ package Conversor;
 
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
+import java.security.Key;
+import java.util.regex.Pattern;
 
 public class Conversor extends JFrame {
     //Declaracion de las variables
@@ -30,9 +33,9 @@ public class Conversor extends JFrame {
 
         //Componentes
         jblGradosC= new javax.swing.JLabel();
-        jtfGradosC= new javax.swing.JTextField();
+        jtfGradosC= new JTextFieldDouble();
         jblGradosF= new javax.swing.JLabel();
-        jtfGradosF= new javax.swing.JTextField();
+        jtfGradosF= new JTextFieldDouble();
         jbtAceptar= new javax.swing.JButton();
 
         //Administrador de diseño en nullo
@@ -76,9 +79,17 @@ public class Conversor extends JFrame {
         });
 
         java.awt.event.KeyListener kl= new java.awt.event.KeyAdapter(){
-            public void keyTyped(java.awt.event.KeyEvent e){
+            public void keyPressed(KeyEvent e){
+                jtfGradosKeyPressed(e);
+                JTextField objJTF = new JTextField();
+                String str= objJTF.getText(); //Contendio de la caja de texto
+                char car=e.getKeyChar();//Meda el caracter tecleado
+            }
+            public void keyTyped(KeyEvent e){
                 jtfGradosKeyTyped(e);
-
+            }
+            public void keyReleased(KeyEvent e){
+                jtfGradosKeyReleased(e);
             }
         };
         jtfGradosC.addKeyListener(kl);
@@ -114,8 +125,58 @@ public class Conversor extends JFrame {
         };
         jtfGradosF.addActionListener(al);
         jtfGradosC.addActionListener(al);
+
+
     }
-    //Metodo del evento de pulsar solo enter
+
+    //Metodo del caja de texto
+    /*private void jtfGradosKeyReleased(KeyEvent evt){
+        //Obtener la caja de texto que genero el evento
+        JTextField objJTF= (JTextField) evt.getSource();
+        //fuente: almacena el contenido en la caja de texto
+        String str=objJTF.getText();
+        char[] fuente= str.toCharArray(); //Convierte el string en una matris de caracteres
+        //resultado: almacena el contendio de la caja de texto valido
+        char[] resultado = new char[fuente.length];
+        int j=0;
+        boolean error= false;
+        //Almacenar en resultado los caracteres validos fuentes
+        for (int i=0; i<fuente.length; i++){
+            if(fuente[i]>= '0' && fuente[i]<='9' || fuente[i]=='.' || fuente[i] == '+'||fuente[i]=='-'){
+                resultado[j++]= fuente[i];
+            }else {
+                error=true;
+                java.awt.Toolkit.getDefaultToolkit().beep();
+                //El método getDefaultToolkit devuelve un objeto de una subclase de java.awt.Toolkit que
+                //en nuestro caso
+            }
+        }
+        if(error){
+            objJTF.setText(new String(resultado,0,j));
+        }
+    }*/
+
+    //Metodo de validacion de caja de texto
+    public void jtfGradosKeyReleased(KeyEvent evt){
+        //Obtener la caja de texto que genero el evento
+        JTextField objTF = (JTextField)evt.getSource();
+        //Fuente almacena el contenido en la caja de texto
+        String fuente=objTF.getText();
+        String patron="^[+-]?[0-9]+.?[0-9]*$";
+        if (Pattern.matches(patron,fuente)){
+            objTF.setText(fuente);
+        }else {
+            Toolkit.getDefaultToolkit().beep();
+        }
+
+    }
+    private void jtfGradosKeyPressed(KeyEvent evt){
+        JTextField obJTF=(JTextField)evt.getSource();
+        String str= obJTF.getText();//contenido de la caja de texto
+        char car=evt.getKeyChar(); //caracter tecleado
+    }
+
+    //Interceptar la tecla pulsada
     private void jtfGradosActionPerformed(ActionEvent event){
 
         try{
@@ -189,4 +250,5 @@ public class Conversor extends JFrame {
             jtfGradosF.setText("Error");
         }
     }
+
 }

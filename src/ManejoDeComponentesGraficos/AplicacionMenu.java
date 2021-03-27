@@ -15,7 +15,8 @@ public class AplicacionMenu extends JFrame {
             System.out.println("No se pudo establecer el aspecto deseado"+ e);
         }
 
-        new Interface().setVisible(true);
+        new BotonesMenu().setVisible(true);
+
     }
 
 }
