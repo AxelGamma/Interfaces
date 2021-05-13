@@ -31,7 +31,7 @@ public class Conversor extends JFrame {
     //Metodo llamado por el formulario
     private void initcomponents(){
 
-        //Componentes
+        //Puntos
         jblGradosC= new javax.swing.JLabel();
         jtfGradosC= new JTextFieldDouble();
         jblGradosF= new javax.swing.JLabel();

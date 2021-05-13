@@ -1,7 +1,6 @@
-package ClaseTopicos;
+package DibujoBucle;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Aplicacion {
     public static void main(String[]args){
@@ -13,7 +12,6 @@ public class Aplicacion {
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.add(new Componentes());
-
 
     }
 }

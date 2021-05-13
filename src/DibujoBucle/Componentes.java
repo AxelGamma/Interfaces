@@ -1,20 +1,22 @@
-package ClaseTopicos;
+package DibujoBucle;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class Componentes extends JPanel {
     public void paintComponent(Graphics g){
-        setBackground(Color.BLUE);
+        setBackground(new Color(95, 14, 125));
         super.paintComponent(g);
         int a=400,i;
-        g.setColor(new Color(141, 86, 29));
+        g.setColor(new Color(141, 96, 29));
+
         //Techo
         for ( i=0;i<=150;i++){
             g.drawLine(75,150,i,300);
         }
+
         //Casa
-        g.setColor(new Color(32, 219, 226));
+        g.setColor(new Color(226, 32, 32));
         for (i=0;i<=150;i++){
             g.drawLine(0,300,i,a);
             if (i==150){
@@ -48,7 +50,7 @@ public class Componentes extends JPanel {
 
         //Puerta
         int x,y1=400;
-        g.setColor(new Color(123, 76, 42));
+        g.setColor(new Color(123, 80, 42));
         for (x=60;x<=90;x++){
             g.drawLine(60,340,x,y1);
             if (x == 90) {
@@ -73,7 +75,7 @@ public class Componentes extends JPanel {
         g.fillOval(215,110,30,30);
         g.fillOval(235,110,30,30);
 
-        //Arbol
+        /*//Arbol
         g.setColor(new Color(25, 186, 19));
 
         int izq=400;
@@ -89,12 +91,7 @@ public class Componentes extends JPanel {
                     break;
                 }
             }
-        }
-
-
-
-
-
+        }*/
     }
 
 }

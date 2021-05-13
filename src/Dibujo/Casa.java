@@ -9,7 +9,8 @@ public class Casa extends JFrame {
         setLocationRelativeTo(null);
         setSize(600,600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
+        setVisible(true);
+        add(new Componentes());
     }
 
 
