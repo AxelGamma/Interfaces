@@ -1,4 +1,4 @@
-package Cliente_Servidor;
+package Cliente_Servidorr;
 
 import javax.swing.*;
 import java.awt.*;
