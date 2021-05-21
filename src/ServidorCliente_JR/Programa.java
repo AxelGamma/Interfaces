@@ -1,23 +1,15 @@
 package ServidorCliente_JR;
+/* @Julia Ramos Lopez
+ * No.Control:19071789*/
 
-import ClienteServidorDB.Cliente;
-import ClienteServidorDB.Servidor;
-import java.awt.*;
+import javax.swing.*;
 
-public class Programa{
+public class Programa extends JFrame {
 
-    public static void main(String[]args){
+    public static void main(String[] args) {
 
-        Frame frame= new Frame();
+        new Aplicacion().setVisible(true);
 
-        frame.setSize(750, 300);
-        frame.
-        frame.setLayout(new FlowLayout());
-        frame.setLocationRelativeTo(null);
-        frame.setResizable(false);
-        frame.setBackground(new Color(99, 199, 74));
-        frame.add(new Servidor());
-        frame.add(new Cliente());
 
     }
 }

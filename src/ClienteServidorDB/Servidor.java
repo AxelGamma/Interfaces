@@ -12,12 +12,7 @@ public class Servidor extends JPanel{
 
     private JButton alumno,profesor,materia;
     private final int PUERTO =5000;
-
-    private ServerSocket serverSocket;
-    private DataOutputStream outAlumno;
     private Socket socket;
-
-
 
     private File ficheroAlumnos = new File("D:\\Users\\Axel\\Vainas Mias\\Archivos de texto\\Alumnos.txt");
     private File ficheroProfesor = new File("D:\\Users\\Axel\\Vainas Mias\\Archivos de texto\\Profesores.txt");

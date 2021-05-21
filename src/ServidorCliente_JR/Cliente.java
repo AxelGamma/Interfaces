@@ -1,4 +1,6 @@
 package ServidorCliente_JR;
+/* @Julia Ramos Lopez
+ * No.Control:19071789*/
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,26 +13,25 @@ public class Cliente extends JPanel implements Runnable {
 
     private final int PUERTO = 5000;
 
-    private JLabel datosSolici;
-    public TextArea textoConsola = new TextArea();
+    private JLabel jlPidiendoDatos;
+    public TextArea respuestaConsulta = new TextArea();
 
     public Cliente() {
-
-        setSize(400, 400);
-        setBackground(new Color(99, 199, 74));
+        setBackground(new Color(204, 112, 250));
         component();
-        Thread mihilo= new Thread(this);
-        mihilo.start();
+
+        Thread thread = new Thread(this);
+        thread.start();
     }
 
     public void component() {
-        datosSolici = new JLabel("Los datos solicitados son:");
-        datosSolici.setBounds(20, 70, 0, 70);
+        jlPidiendoDatos = new JLabel("Los datos solicitados son:");
+        jlPidiendoDatos.setBounds(20, 70, 0, 70);
 
-        textoConsola.setBounds(0, 60, 100, 150);
-        textoConsola.setEditable(false);
-        add(datosSolici);
-        add(textoConsola);
+        respuestaConsulta.setBounds(0, 60, 100, 150);
+        respuestaConsulta.setEditable(false);
+        add(jlPidiendoDatos);
+        add(respuestaConsulta);
     }
 
     @Override
@@ -42,17 +43,16 @@ public class Cliente extends JPanel implements Runnable {
                 DataInputStream entradaF = new DataInputStream(miServidor.getInputStream());
                 String fichero = entradaF.readUTF();
 
-                String[] alumnos = fichero.split("-");
+                String[] datosArchivo = fichero.split("-");
 
-                for (int i = 0; i < alumnos.length; i++) {
+                for (int i = 0; i < datosArchivo.length; i++) {
 
-                    textoConsola.append(alumnos[i] + "\n");
+                    respuestaConsulta.append(datosArchivo[i] + "\n");
 
                 }
                 miServidor.close();
-
             }
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
