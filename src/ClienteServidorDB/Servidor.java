@@ -10,7 +10,7 @@ import java.net.Socket;
 
 public class Servidor extends JPanel{
 
-    private JButton alumno,profesor,materia;
+    private JButton alumno,profesor,materia,Salir;
     private final int PUERTO =5000;
     private Socket socket;
 
@@ -57,9 +57,19 @@ public class Servidor extends JPanel{
             }
         });
 
+        Salir= new JButton("Salir");
+        Salir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Salir();
+            }
+        });
+
+
         add(alumno);
         add(profesor);
         add(materia);
+        add(Salir);
 
 
     }
@@ -119,6 +129,10 @@ public class Servidor extends JPanel{
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }
+    }
+
+    public void Salir(){
+        System.exit(0);
     }
 
 

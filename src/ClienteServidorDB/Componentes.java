@@ -21,9 +21,6 @@ public class Componentes extends JFrame {
             add(new Servidor());
             add(new Cliente());
 
-
-
-
     }
 
 
