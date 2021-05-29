@@ -69,7 +69,6 @@ public class Servidor extends JPanel {
                 nombre += s + "\n";
             }
             salida.writeUTF("Alumno: " + nombre);
-
             salida.close();
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());

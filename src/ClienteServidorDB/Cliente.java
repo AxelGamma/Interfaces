@@ -25,9 +25,7 @@ public class Cliente extends JPanel implements Runnable{
 
     public void component() {
         datosSolici = new JLabel("Los datos solicitados son:");
-        datosSolici.setBounds(20, 70, 0, 70);
 
-        textoConsola.setBounds(0, 60, 100, 150);
         textoConsola.setEditable(false);
         add(datosSolici);
         add(textoConsola);
@@ -40,6 +38,7 @@ public class Cliente extends JPanel implements Runnable{
             while (true) {
                 Socket miServidor = serverSocket.accept();
                 DataInputStream entradaF = new DataInputStream(miServidor.getInputStream());
+
                 String fichero = entradaF.readUTF();
 
                 String[] alumnos = fichero.split("-");

@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Servidor extends JPanel{
@@ -28,8 +27,6 @@ public class Servidor extends JPanel{
     public void componentes(){
 
         alumno= new JButton("Alumno");
-        alumno.setBounds(0,0,120,20);
-
         alumno.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -38,8 +35,6 @@ public class Servidor extends JPanel{
         });
 
         profesor= new JButton("Profesor");
-        profesor.setBounds(0,0,120,20);
-
         profesor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -48,8 +43,6 @@ public class Servidor extends JPanel{
         });
 
         materia= new JButton("Materia");
-        materia.setBounds(0,0,120,20);
-
         materia.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -76,7 +69,7 @@ public class Servidor extends JPanel{
 
     private void alumno(){
         try {
-            String s, nombre = "";
+            String s, nombre="";
             socket= new Socket("localhost",PUERTO);
 
             DataOutputStream salida= new DataOutputStream(socket.getOutputStream());
