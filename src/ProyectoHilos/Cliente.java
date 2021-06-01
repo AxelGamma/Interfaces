@@ -1,13 +1,21 @@
 package ProyectoHilos;
 
 public class Cliente implements Runnable {
-    private String nombre;
-    private int compras[];
-    private int numeroArticulos;
-    private int tiempo;
+    private String nombre = " ";
+    private int compras[]=new int[0];
+    private int numeroArticulos=0;
+    private int tiempo = 0;
+    private int nProductos=0;
 
-    public Cliente(String nombre){
-        this.nombre= nombre;
+    public Cliente(String nombre) {
+        setNombre(nombre);
+        setNumeroArticulos();
+        compras = new int[getNumeroArticulos()];
+
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getNombre() {
@@ -22,29 +30,26 @@ public class Cliente implements Runnable {
         this.numeroArticulos = nArandom();
     }
 
+
     public int getNumeroArticulos() {
         return numeroArticulos;
     }
 
     @Override
     public void run() {
-        setNumeroArticulos();
-        compras = new int[getNumeroArticulos()];
+
         for (int i = 0; i < compras.length; i++) {
             compras[i] = nArandom();
             tiempo += compras[i];
         }
 
-        System.out.println("El cliente: " + getNombre());
+        System.out.println(" El cliente: " + getNombre());
 
         for (int i = 0; i < compras.length; i++) {
-            System.out.println("Producto " + i + ": " + compras[i]);
+            nProductos+=1;
+            System.out.println(getNombre() + ", Producto "+ nProductos + ": " + compras[i]);
         }
-        System.out.println("Tiempo total: " + tiempo);
-
-        System.out.println("Nombre: "+ nombre);
-        System.out.println("Numero de articulo: "+ getNumeroArticulos());
-        System.out.println("Tiempo: "+tiempo);
+        System.out.println("~ Nombre: " + getNombre() + "\n Numero de articulos:" + nProductos + "\n tiempo total de: " + tiempo + " segundos. ~");
 
 
     }
