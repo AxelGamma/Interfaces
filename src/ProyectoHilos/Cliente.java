@@ -1,6 +1,7 @@
 package ProyectoHilos;
 
 public class Cliente implements Runnable {
+
     private String nombre = " ";
     private int compras[]=new int[0];
     private int numeroArticulos=0;
@@ -23,7 +24,7 @@ public class Cliente implements Runnable {
     }
 
     public int nArandom() {
-        return numeroArticulos = (int) (Math.random() * 10 + 1);
+        return (int) (Math.random() * 10 + 1);
     }
 
     public void setNumeroArticulos() {
@@ -40,15 +41,16 @@ public class Cliente implements Runnable {
 
         for (int i = 0; i < compras.length; i++) {
             compras[i] = nArandom();
-            tiempo += compras[i];
+            tiempo+= compras[i];
         }
 
-        System.out.println(" El cliente: " + getNombre());
+        System.out.println("Entro a la tienda el cliente: " + getNombre());
 
         for (int i = 0; i < compras.length; i++) {
             nProductos+=1;
             System.out.println(getNombre() + ", Producto "+ nProductos + ": " + compras[i]);
         }
+
         System.out.println("~ Nombre: " + getNombre() + "\n Numero de articulos:" + nProductos + "\n tiempo total de: " + tiempo + " segundos. ~");
 
 
