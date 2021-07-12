@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Campo_de_Golf">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/Campo_de_Golf.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
